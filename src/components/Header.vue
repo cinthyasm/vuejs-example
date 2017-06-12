@@ -1,19 +1,14 @@
 <template>
-  <div class="header">
+  <header class="header">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <div class="navbar-header">
-            <router-link to="/" class="navbar-brand">
-                <img src="../assets/logo.png">
-            </router-link>
-        </div>
         <ul class="nav navbar-nav">
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/todo-list">Tasks</router-link></li>
         </ul>
       </div>
     </nav>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -26,9 +21,18 @@ export default {
 </script>
 
 <style>
-    img {
-        width: 25px;
-    }
+   header .navbar-default{
+     background-color: #41B883;
+     border: 0;
+     border-radius: 0;
+     font-size: 16px;
+   }
+   .navbar-default .navbar-nav>li>a{
+     color: #fff;
+   }
+    .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:active,.navbar-default .navbar-nav>li>a:focus{
+     color: #81F1BD;
+   }
 </style>
 
 
