@@ -2,7 +2,7 @@
   <div class="todo-list">
     <div class="container">
       <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="todos__block">
                 <ul class="todos__list">
                     <li class="todos__item" v-for="(todo,index) in todos" :class="{ 'todos__completed': todo.completed }" @click="todo.completed = !todo.completed" transition="fade"> 
@@ -12,9 +12,12 @@
                 </ul>
             </div>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-9">
+              <h2>New Task</h2>
+              <p>Type a task and press enter</p>
             <span v-show="itemsTodo.length">{{ itemsTodo.length }} pending</span>
-            <input class="form-control" type="text" @keyup.enter="addTodo" v-model="newTodo" placeholder="Type and press enter..."/>
+            <input class="form-control" type="text" @keyup.enter="addTodo" v-model="newTodo"/>
+            <button class="btn todos__clear" @click.prevent="clearCompleted" v-show="itemsDone.length">Clear completed tasks</button>
           </div>
       </div>
     </div>
@@ -105,7 +108,7 @@ export default {
 }
 .todos__item:hover {
   cursor: pointer;
-  color: #666;
+  color: #354C5F;
 }
 .todos__delete {
  margin-right: 10px;
@@ -116,14 +119,18 @@ export default {
 .todos__completed {
   background: #f6feff;
   text-decoration: line-through;
-  color: #09a;
+  color: #41B883;
 }
 .todos__completed:hover {
   color: #008290;
 }
 .todos__clear {
-  font-size: 0.8rem;
-  color: #09a;
+    margin-top: 30px;
+    color: #fff;
+    background-color: #41B883;
+}
+.todos__clear:hover {
+    color: #fff;
 }
 .todos__empty {
   font-size: 0.9rem;
