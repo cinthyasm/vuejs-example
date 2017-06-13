@@ -112,11 +112,12 @@ export default {
   list-style-type: none;
 }
 .tags li{
-  font-size: 3rem;
   text-align: left;
 }
 .todos__block{
   height: 100vh;
+  width: 250px;
+  margin: 15px auto;
 }
 .todos__title {
   margin-bottom: 1rem;

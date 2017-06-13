@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-10">
+  <div class="col-md-offset-1 col-md-8">
     <slot></slot>
     <span v-show="itemsTodo">{{ itemsTodo}} pending</span>
     <input class="form-control" type="text" @keyup.enter="addTodo" v-model="newTodo"/>
