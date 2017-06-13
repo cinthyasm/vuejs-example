@@ -10,15 +10,14 @@
           :itemsDone="itemsDone.length"
         >
         </app-sidebar>
-        <todo
+        <todo-list
           :itemsTodo="itemsTodo.length"
-          :newTodo="newTodo"
           :addTodo="addTodo"
           :todoList= "filteredList"
           :removeItem="removeTodo">
             <h2>New Task</h2>
             <p>Type a task and press enter</p>
-        </todo>
+        </todo-list>
       </div>
     </div>
   </div>
@@ -29,10 +28,9 @@ import Sidebar from './Sidebar'
 import TodoList from './TodoList'
 //https://vuejs.org/v2/guide/computed.html
 export default {
-  name: 'todo-list',
   components: {
     'app-sidebar': Sidebar,
-    'todo': TodoList
+    'todo-list': TodoList
   },
   data () {
     return {
@@ -63,27 +61,25 @@ export default {
     addTodo(newTodo) {
       // create new todo object
       const newEntry = {
-        text: this.newTodo,
+        text: newTodo,
         completed: false
       }
       // if input field not empty...
-      if (this.newTodo.length) {
+      if (newTodo.length) {
         // ...push to todos array 
         this.todos.push(newEntry)
         // ...reset input field
-        this.newTodo = '' 
       }
     },
     getCompletes(){
-      this.filteredList =  this.todos.filter(todo => todo.completed);
+      this.filteredList =  this.todos.filter(todo => !todo.completed);
     },
     getActive(){
-      this.filteredList = this.todos.filter(todo => !todo.completed);
+      this.filteredList = this.todos.filter(todo => todo.completed);
     },
     removeTodo(index) {
       // remove todo item
-      this.todos.splice(index, 1);
-      this.filteredList = this.itemsTodo;
+      this.filteredList.splice(index, 1);
     },
     getAll(){
       this.filteredList = this.todos;
